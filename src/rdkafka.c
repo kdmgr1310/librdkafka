@@ -3217,6 +3217,11 @@ rd_kafka_share_t *rd_kafka_share_consumer_new(rd_kafka_conf_t *conf,
 }
 
 
+rd_kafka_t *rd_kafka_share_consumer_get_rk(rd_kafka_share_t *rkshare) {
+        return rkshare->rkshare_rk;
+}
+
+
 rd_kafka_error_t *rd_kafka_share_acquire(rd_kafka_share_t *rkshare) {
         rd_kafka_t *rk;
         int64_t tid;

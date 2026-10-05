@@ -5605,6 +5605,21 @@ rd_kafka_share_t *rd_kafka_share_consumer_new(rd_kafka_conf_t *conf,
 
 
 /**
+ * @brief Get the underlying client handle from a share consumer.
+ *
+ * The returned handle is owned by the share consumer and must not be
+ * destroyed separately. It is valid until the share consumer is destroyed.
+ * The handle may be used with the generic rd_kafka_t APIs, including
+ * rd_kafka_name().
+ *
+ * @param rkshare Share consumer handle.
+ * @returns The underlying client handle.
+ */
+RD_EXPORT rd_kafka_t *rd_kafka_share_consumer_get_rk(
+    rd_kafka_share_t *rkshare);
+
+
+/**
  * @brief Set acknowledgement commit callback at runtime.
  *
  * Sets a callback to be invoked when acknowledgements sent to the broker
